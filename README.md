@@ -74,5 +74,3 @@ This project is licensed under the [MIT License](LICENSE).
 Feel free to modify this template to fit the specific details and structure of your project. Include additional sections or information as needed. The README file serves as a useful resource for developers and users to understand your project and get started with it.
 
 ## Images
-![Alt Text](a.png)
-![Alt Text](b.png)
