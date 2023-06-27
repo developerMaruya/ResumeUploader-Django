@@ -74,3 +74,7 @@ This project is licensed under the [MIT License](LICENSE).
 Feel free to modify this template to fit the specific details and structure of your project. Include additional sections or information as needed. The README file serves as a useful resource for developers and users to understand your project and get started with it.
 
 ## Images
+
+![a](https://github.com/developerMaruya/ResumeUploader-Django/assets/137375643/a0b4dde8-355f-4f49-8693-bde72e9fe7c8)
+![b](https://github.com/developerMaruya/ResumeUploader-Django/assets/137375643/1af38a6a-5a3f-48c1-a123-dc77dde13aeb)
+
