@@ -1,4 +1,3 @@
-To create a README file for your Django project, you can follow the Markdown syntax to provide clear and concise information about your project. Here's an example of how you could structure your README file for the "Resume Uploader - Django" project:
 
 # Resume Uploader - Django
 
