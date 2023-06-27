@@ -131,7 +131,9 @@ button{
 .social i{
   margin-right: 4px;
 }
-
+.forgetbutton{
+    margin-top: 20px;
+}
     </style>
 </head>
 <body>
@@ -149,14 +151,10 @@ button{
         <input type="password" placeholder="Password" id="password" name="pass">
 
         <button type="submit">Log In</button>
-        <!-- <input type="button" value=""> -->
-        <!-- <div class="social">
-          <div class="go"><i class="fab fa-google"></i>  Google</div>
-          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
-        </div> -->
+        <div class="forgetbutton">
         <a href="/" >Create a account</a> &nbsp; &nbsp;
         <a href="{% url 'forget' %}" >Forget Password</a>
-        
+    </div>
     </form>
 </body>
 </html>
