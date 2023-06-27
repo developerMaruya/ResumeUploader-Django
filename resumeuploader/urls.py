@@ -36,6 +36,7 @@ urlpatterns = [
     path('forget/', views.ForgetPage, name='forget'),
     path('conform_password/', views.ConformPasswordPage, name='conform_password'),
     path('conform_password/<str:token>/', views.ConformPasswordPage, name='conform_password_with_token'),
+    path('reset_password',views.ResetPassword,name='reset_password')
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

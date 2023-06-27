@@ -67,52 +67,6 @@ def LogoutPage(request):
     logout(request)
     return redirect('login')
 
-# from django.contrib import messages
-# from django.shortcuts import render, redirect
-# from django.contrib.auth.models import User
-# from .helper import send_forget_password_mail
-# import uuid
-
-# def ForgetPage(request):
-#     print(".............")
-#     if request.method == 'POST':
-#         print(">>>>>>>>>>>")
-#         username = request.POST.get('username')
-#         if not User.objects.filter(username=username).exists():
-#             messages.error(request, 'No user found')
-#             print("checking................")
-#             return render(request, 'forget.html')
-
-        
-#         user_obj = User.objects.get(username=username)
-#         print("chedking 2....")
-#         token = str(uuid.uuid4())
-#         print(".........<<<<<<<<<<<")
-#         send_forget_password_mail(user_obj.email)
-#         print("cheming 4..................")
-#         messages.success(request, 'An email has been sent')
-#         print("code run..................................")
-#         return redirect('login')
-#     print("chckeing 3....")
-#     return render(request,'myapp/forgetpassword.html')
-
-# def Conform_password(request):
-#     if request.method == 'POST':
-#         password1 = request.POST.get('password')
-#         password2 = request.POST.get('conform_password')
-#         if password1 == password2:
-#             print("Update password")
-#             # Assuming you have a unique identifier like email or username
-#             user_obj = User.objects.get(username=request.user.username)
-#             user_obj.set_password(password2)  # Set the new password
-#             user_obj.save()  # Save the updated user object
-#             return redirect('login')
-#         else:
-#             print("Password mismatch")
-#     return render(request, 'myapp/conform_password.html')
-
-
-
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
@@ -190,3 +144,30 @@ def ConformPasswordPage(request):
             return redirect('login')  # Redirect to login page if token is not provided
         
     return render(request, 'myapp/conform_password.html', {'token': token})
+
+
+from django.contrib.auth.hashers import check_password
+
+def ResetPassword(request):
+    if request.method == 'POST':
+        old_password = request.POST.get('oldpassword')
+        new_password = request.POST.get('newpassword')
+        print("old password",old_password)
+        if request.user.is_authenticated:
+            print("enter in user authentication....")
+            print(request.user.password)
+            # Check if the old password matches the user's current password
+            if check_password(old_password, request.user.password):
+                # Change the user's password to the new password
+                request.user.set_password(new_password)
+                request.user.save()
+                messages.success(request, 'Your password was successfully updated!')
+                return redirect('login')
+            else:
+                print("else......check_password...")
+                messages.error(request, 'Invalid old password.')
+        else:
+            print("else....authenticated.")
+            messages.error(request, 'No user is currently logged in.')
+
+    return render(request, 'myapp/reset_password.html')

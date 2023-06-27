@@ -32,7 +32,7 @@
     </form>
    </div>
    <div class="col-sm-4">
-    <h4 class="text-center mb-3"><u>List of Candidate</u>&nbsp;&nbsp;&nbsp;<a href="{% url 'logout' %}" class="btn btn-danger">Logout</a></h4>
+    <h4 class="text-center mb-3"><u>List of Candidate</u>&nbsp;<a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>&nbsp;<a href="{% url 'reset_password' %}" class="btn btn-primary">Reset Password</a></h4>
     
     {% for candidate in candidates %}
      {{candidate.id}} : <a href="{% url 'candidate' candidate.id %}">{{candidate.name}}</a>
